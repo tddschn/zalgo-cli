@@ -42,7 +42,7 @@ def get_args():
                         default=1,
                         help='Amount of Zalgo text to generate')
 
-    parser.add_argument('-o',
+    parser.add_argument('-o', '-1',
                         '--one-per-line',
                         action='store_true',
                         help='Output one Zalgo-fied string per line')
