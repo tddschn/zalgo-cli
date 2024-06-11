@@ -13,6 +13,7 @@ A simple command line tool and [Gradio app](https://huggingface.co/spaces/tddsch
   - [Usage](#usage)
     - [CLI](#cli-1)
     - [Gradio](#gradio-1)
+    - [Library](#library)
   - [Develop](#develop)
   - [Credits](#credits)
 
@@ -103,6 +104,18 @@ $ zalgo-gradio
 ```
 
 Or use the hosted version at https://huggingface.co/spaces/tddschn/zalgo-gradio .
+
+### Library
+
+Codes are split into separate files so that you can use it as a library too without hassle.
+
+There's only one core function that you might want to use:
+
+```python
+from zalgo_cli import zalgo
+```
+
+Read the source code to see how to use it.
 
 ## Develop
 
