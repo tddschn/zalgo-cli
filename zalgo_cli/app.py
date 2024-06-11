@@ -32,7 +32,7 @@ def gradio_app():
             amount = gr.Number(label="Amount of Zalgo Text to Generate", value=1)
             one_per_line = gr.Checkbox(label="Output One Zalgo-fied String Per Line", value=False)
         
-        output = gr.Textbox(label="Zalgo Text Output")
+        output = gr.Textbox(label="Zalgo Text Output", show_copy_button=True)
         
         generate_button = gr.Button("Generate")
         generate_button.click(
