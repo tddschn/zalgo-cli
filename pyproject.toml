@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "zalgo-cli"
+version = "0.1.0"
+description = "Zalgo Text Generator CLI"
+authors = ["Teddy Xinyuan Chen <45612704+tddschn@users.noreply.github.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/tddschn/zalgo-cli"
+repository = "https://github.com/tddschn/zalgo-cli"
+classifiers = ["Topic :: Utilities"]
+keywords = ["zalgo"]
+
+[tool.poetry.scripts]
+zalgo = "zalgo_cli.cli:main"
+zalgo-cli = "zalgo_cli.cli:main"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/tddschn/zalgo-cli/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
