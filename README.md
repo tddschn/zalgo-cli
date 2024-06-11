@@ -9,6 +9,7 @@ A simple command line tool to generate zalgo text.
     - [pip](#pip)
   - [Usage](#usage)
   - [Develop](#develop)
+  - [Credits](#credits)
 
 ## Demo
 
@@ -45,7 +46,7 @@ You can use either `zalgo` or `zalgo-cli` to run the program.
 ```
 $ zalgo --help
 
-usage: zalgo [-h] [-a int] [-l int] [-n int] [-o] [str]
+usage: zalgo [-h] [-a int] [-l int] [-n int] [-o] [-V] [str]
 
 Generate Zalgo text
 
@@ -60,7 +61,10 @@ options:
   -l int, --char-limit int
                         Character limit [0 for no limit] (default: 0)
   -n int, --amount int  Amount of Zalgo text to generate (default: 1)
-  -o, --one-per-line    Output one Zalgo-fied string per line (default: False)
+  -o, -1, --one-per-line
+                        Output one Zalgo-fied string per line (default: False)
+  -V, --version         show program's version number and exit
+
 ```
 
 ## Develop
@@ -70,3 +74,7 @@ $ git clone https://github.com/tddschn/zalgo-cli.git
 $ cd zalgo-cli
 $ poetry install
 ```
+
+## Credits
+
+Development of this project was based on https://github.com/n-1x/zalgo-cli .

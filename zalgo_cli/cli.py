@@ -8,6 +8,7 @@ Purpose: Generate Zalgo text
 import argparse
 import random
 import sys
+from zalgo_cli import __version__
 
 def get_args():
     """Get command-line arguments"""
@@ -47,6 +48,11 @@ def get_args():
                         action='store_true',
                         help='Output one Zalgo-fied string per line')
 
+    parser.add_argument(
+        '-V', '--version',
+        action='version',
+        version=f'%(prog)s {__version__}',
+    )
     return parser.parse_args()
 
 def zalgo(string, adds_per_char):
