@@ -7,6 +7,7 @@ Purpose: Generate Zalgo text
 
 import argparse
 import sys
+import logging
 from zalgo_cli import __version__, zalgo
 
 def get_args():
@@ -54,6 +55,11 @@ def get_args():
                         default='',
                         help="Codepoints to Add (space-separated hex values, e.g., '0300 036F')")
 
+    parser.add_argument('-d',
+                        '--debug',
+                        action='store_true',
+                        help='Enable debug logging')
+
     parser.add_argument(
         '-V', '--version',
         action='version',
@@ -66,6 +72,9 @@ def main():
 
     args = get_args()
 
+    if args.debug:
+        logging.basicConfig(level=logging.DEBUG)
+
     if args.string:
         string = args.string
     else:
@@ -77,11 +86,14 @@ def main():
     one_per_line = args.one_per_line
     codepoints_to_add = [int(cp, 16) for cp in args.codepoints.strip().split()] if args.codepoints else None
 
+    if args.debug and codepoints_to_add:
+        logging.debug(f"Codepoints to add: {codepoints_to_add}")
+
     if char_limit != 0:
         adds_per_char = (char_limit - len(string)) // len(string)
 
     for i in range(amount_wanted):
-        print(zalgo(string, adds_per_char, codepoints_to_add), end='\n' if one_per_line else '\t')
+        print(zalgo(string, adds_per_char, codepoints_to_add, args.debug), end='\n' if one_per_line else '\t')
 
         if not one_per_line and ((i + 1) % 4 == 0):
             print()
