@@ -1,6 +1,6 @@
 # zalgo-cli
 
-A simple command line tool and Gradio app to generate zalgo text.
+A simple command line tool and [Gradio app](https://huggingface.co/spaces/tddschn/zalgo-gradio) to generate zalgo text.
 
 - [zalgo-cli](#zalgo-cli)
   - [Demo](#demo)
@@ -37,6 +37,8 @@ $ echo 'hello world' | zalgo -n 5 -o -a1000
 ```
 
 ### Gradio
+
+https://huggingface.co/spaces/tddschn/zalgo-gradio
 
 ```
 $ zalgo-gradio
@@ -99,6 +101,8 @@ options:
 ```
 $ zalgo-gradio
 ```
+
+Or use the hosted version at https://huggingface.co/spaces/tddschn/zalgo-gradio .
 
 ## Develop
 
