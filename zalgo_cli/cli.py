@@ -2,11 +2,10 @@
 """
 Author : Xinyuan Chen <45612704+tddschn@users.noreply.github.com>
 Date   : 2024-06-10
-Purpose: Why not?
+Purpose: Generate Zalgo text
 """
 
 import argparse
-from pathlib import Path
 import random
 
 def get_args():
@@ -41,6 +40,11 @@ def get_args():
                         default=1,
                         help='Amount of Zalgo text to generate')
 
+    parser.add_argument('-o',
+                        '--one_per_line',
+                        action='store_true',
+                        help='Output one Zalgo-fied string per line')
+
     return parser.parse_args()
 
 def zalgo(string, adds_per_char):
@@ -64,19 +68,19 @@ def main():
     adds_per_char = args.adds_per_char
     char_limit = args.char_limit
     amount_wanted = args.amount
+    one_per_line = args.one_per_line
 
     if char_limit != 0:
         adds_per_char = (char_limit - len(string)) // len(string)
 
     for i in range(amount_wanted):
-        print(zalgo(string, adds_per_char), end='')
+        print(zalgo(string, adds_per_char), end='\n' if one_per_line else '\t')
 
-        if ((i + 1) % 4 == 0):
+        if not one_per_line and ((i + 1) % 4 == 0):
             print()
-        else:
-            print('\t', end='')
 
-    print()
+    if not one_per_line:
+        print()
 
 if __name__ == '__main__':
     main()
