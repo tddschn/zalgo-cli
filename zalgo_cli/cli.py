@@ -20,14 +20,14 @@ def get_args():
                         help='Initial string to Zalgo-fy')
 
     parser.add_argument('-a',
-                        '--adds_per_char',
+                        '--adds-per-char',
                         metavar='int',
                         type=int,
                         default=1,
                         help='Number of additions per character')
 
     parser.add_argument('-l',
-                        '--char_limit',
+                        '--char-limit',
                         metavar='int',
                         type=int,
                         default=0,
@@ -41,7 +41,7 @@ def get_args():
                         help='Amount of Zalgo text to generate')
 
     parser.add_argument('-o',
-                        '--one_per_line',
+                        '--one-per-line',
                         action='store_true',
                         help='Output one Zalgo-fied string per line')
 
