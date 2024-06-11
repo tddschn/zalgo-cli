@@ -11,6 +11,8 @@ A simple command line tool and Gradio app to generate zalgo text.
     - [pip](#pip)
     - [zalgo-gradio](#zalgo-gradio)
   - [Usage](#usage)
+    - [CLI](#cli-1)
+    - [Gradio](#gradio-1)
   - [Develop](#develop)
   - [Credits](#credits)
 
@@ -64,6 +66,8 @@ $ pip install zalgo-cli
 
 ## Usage
 
+### CLI
+
 You can use either `zalgo` or `zalgo-cli` to run the program.
 
 ```
@@ -88,6 +92,12 @@ options:
                         Output one Zalgo-fied string per line (default: False)
   -V, --version         show program's version number and exit
 
+```
+
+### Gradio
+
+```
+$ zalgo-gradio
 ```
 
 ## Develop
