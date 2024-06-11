@@ -127,4 +127,4 @@ $ poetry install
 
 ## Credits
 
-Development of this project was based on https://github.com/n-1x/zalgo-cli .
+Initial development of this project was inspired by https://github.com/n-1x/zalgo-cli .

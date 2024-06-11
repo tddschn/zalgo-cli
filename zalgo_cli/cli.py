@@ -47,6 +47,13 @@ def get_args():
                         action='store_true',
                         help='Output one Zalgo-fied string per line')
 
+    parser.add_argument('-c',
+                        '--codepoints',
+                        metavar='str',
+                        type=str,
+                        default='',
+                        help="Codepoints to Add (space-separated hex values, e.g., '0300 036F')")
+
     parser.add_argument(
         '-V', '--version',
         action='version',
@@ -68,12 +75,13 @@ def main():
     char_limit = args.char_limit
     amount_wanted = args.amount
     one_per_line = args.one_per_line
+    codepoints_to_add = [int(cp, 16) for cp in args.codepoints.strip().split()] if args.codepoints else None
 
     if char_limit != 0:
         adds_per_char = (char_limit - len(string)) // len(string)
 
     for i in range(amount_wanted):
-        print(zalgo(string, adds_per_char), end='\n' if one_per_line else '\t')
+        print(zalgo(string, adds_per_char, codepoints_to_add), end='\n' if one_per_line else '\t')
 
         if not one_per_line and ((i + 1) % 4 == 0):
             print()
