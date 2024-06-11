@@ -7,6 +7,7 @@ Purpose: Generate Zalgo text
 
 import argparse
 import random
+import sys
 
 def get_args():
     """Get command-line arguments"""
@@ -17,7 +18,8 @@ def get_args():
 
     parser.add_argument('string',
                         metavar='str',
-                        help='Initial string to Zalgo-fy')
+                        nargs='?',
+                        help='Initial string to Zalgo-fy. If not provided, read from stdin')
 
     parser.add_argument('-a',
                         '--adds-per-char',
@@ -64,7 +66,11 @@ def main():
 
     args = get_args()
 
-    string = args.string
+    if args.string:
+        string = args.string
+    else:
+        string = sys.stdin.read()
+
     adds_per_char = args.adds_per_char
     char_limit = args.char_limit
     amount_wanted = args.amount
