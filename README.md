@@ -37,6 +37,16 @@ t͆e̟s̈́tͦ	t̛e͏s̛t͕	t̆eͮs̠tͮ	t͋e̱s͎tͦ
 $ echo 'hello world' | zalgo -n 5 -o -a1000
 ```
 
+**Specifying a list of unicode codepoints to zalgo-fy the text**
+
+See https://www.compart.com/en/unicode/block/U+0300
+
+```
+# add `t' diacratic marks (U+036D) on t 100 times, then add `c' diacratic marks on c 100 times
+$ zalgo 'tc' -a100 -c '0x036D 0x0368'
+tͭͭͭcͨͨͨ	
+```
+
 ### Gradio
 
 https://huggingface.co/spaces/tddschn/zalgo-gradio
