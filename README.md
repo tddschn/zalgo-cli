@@ -23,6 +23,12 @@ t̘e͐s̞t̿	ẗeͣs͆t̸	t͙e͉s̑t̤	t̀e͙s̐t̋
 t͆e̟s̈́tͦ	t̛e͏s̛t͕	t̆eͮs̠tͮ	t͋e̱s͎tͦ	
 ```
 
+```
+# accept input from stdin, adding tons of the zalgo-thingys
+# output is too crazy to be put here
+$ echo 'hello world' | zalgo -n 5 -o -a1000
+```
+
 ## Installation
 
 ### pipx
