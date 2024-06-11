@@ -1,17 +1,22 @@
 # zalgo-cli
 
-A simple command line tool to generate zalgo text.
+A simple command line tool and Gradio app to generate zalgo text.
 
 - [zalgo-cli](#zalgo-cli)
   - [Demo](#demo)
+    - [CLI](#cli)
+    - [Gradio](#gradio)
   - [Installation](#installation)
     - [pipx](#pipx)
     - [pip](#pip)
+    - [zalgo-gradio](#zalgo-gradio)
   - [Usage](#usage)
   - [Develop](#develop)
   - [Credits](#credits)
 
 ## Demo
+
+### CLI
 
 ```
 $ zalgo test -n 20
@@ -29,6 +34,14 @@ t͆e̟s̈́tͦ	t̛e͏s̛t͕	t̆eͮs̠tͮ	t͋e̱s͎tͦ
 $ echo 'hello world' | zalgo -n 5 -o -a1000
 ```
 
+### Gradio
+
+```
+$ zalgo-gradio
+```
+
+![](https://github.com/cli/cli/assets/45612704/1f55f742-fea1-4e42-9c70-321ce096f0b0)
+
 ## Installation
 
 ### pipx
@@ -44,6 +57,10 @@ $ pipx install zalgo-cli
 ```
 $ pip install zalgo-cli
 ```
+
+### zalgo-gradio
+
+`zalgo-gradio` requires an extra dependency to run, you can install it with `pipx install zalgo-cli[gradio]` or `pip install zalgo-cli[gradio]`.
 
 ## Usage
 

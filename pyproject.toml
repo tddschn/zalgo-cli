@@ -13,12 +13,14 @@ keywords = ["zalgo"]
 [tool.poetry.scripts]
 zalgo = "zalgo_cli.cli:main"
 zalgo-cli = "zalgo_cli.cli:main"
+zalgo-gradio = "zalgo_cli.app:main"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/tddschn/zalgo-cli/issues"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
+gradio = { version = "^4.36.1", extras = ["gradio"] }
 
 
 [build-system]
