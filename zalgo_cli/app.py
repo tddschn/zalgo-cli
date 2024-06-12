@@ -3,13 +3,15 @@
 import gradio as gr
 from zalgo_cli import zalgo, __version__
 
-def generate_zalgo(string, adds_per_char, char_limit, amount, one_per_line):
+def generate_zalgo(string, adds_per_char, char_limit, amount, one_per_line, codepoints_str):
     results = []
+    codepoints_to_add = [int(cp, 16) for cp in codepoints_str.strip().split()] if codepoints_str else None
+    
     if char_limit != 0:
         adds_per_char = (char_limit - len(string)) // len(string)
 
     for _ in range(amount):
-        zalgo_text = zalgo(string, adds_per_char)
+        zalgo_text = zalgo(string, adds_per_char, codepoints_to_add)
         results.append(zalgo_text)
     
     if one_per_line:
@@ -32,14 +34,24 @@ def gradio_app():
             amount = gr.Number(label="Amount of Zalgo Text to Generate", value=1)
             one_per_line = gr.Checkbox(label="Output One Zalgo-fied String Per Line", value=False)
         
+        with gr.Row():
+            codepoints_str = gr.Textbox(label="Codepoints to Add (space-separated hex values, e.g., '0x036D 0x0368')", value="")
+        
         output = gr.Textbox(label="Zalgo Text Output", show_copy_button=True)
         
         generate_button = gr.Button("Generate")
         generate_button.click(
             fn=generate_zalgo, 
-            inputs=[input_string, adds_per_char, char_limit, amount, one_per_line], 
+            inputs=[input_string, adds_per_char, char_limit, amount, one_per_line, codepoints_str], 
             outputs=output
         )
+        
+        examples = [
+            ["Hello World | Click me and hit the Generate button a few times to get different results", 1, 0, 1, False, ""],
+            ["tc", 2, 20, 2, True, "0x036D 0x0368"]
+        ]
+        
+        gr.Examples(examples=examples, inputs=[input_string, adds_per_char, char_limit, amount, one_per_line, codepoints_str])
     
     return app
 

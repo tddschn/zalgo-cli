@@ -53,7 +53,7 @@ def get_args():
                         metavar='str',
                         type=str,
                         default='',
-                        help="Codepoints to Add (space-separated hex values, e.g., '0300 036F')")
+                        help="Codepoints to Add (space-separated hex values, e.g., '0x036D 0x0368')")
 
     parser.add_argument('-d',
                         '--debug',
