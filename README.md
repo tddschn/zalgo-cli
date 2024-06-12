@@ -86,7 +86,7 @@ You can use either `zalgo` or `zalgo-cli` to run the program.
 ```
 $ zalgo --help
 
-usage: zalgo [-h] [-a int] [-l int] [-n int] [-o] [-V] [str]
+usage: zalgo [-h] [-a int] [-l int] [-n int] [-o] [-c str] [-d] [-V] [str]
 
 Generate Zalgo text
 
@@ -103,6 +103,10 @@ options:
   -n int, --amount int  Amount of Zalgo text to generate (default: 1)
   -o, -1, --one-per-line
                         Output one Zalgo-fied string per line (default: False)
+  -c str, --codepoints str
+                        Codepoints to Add (space-separated hex values, e.g.,
+                        '0x036D 0x0368') (default: )
+  -d, --debug           Enable debug logging (default: False)
   -V, --version         show program's version number and exit
 
 ```
