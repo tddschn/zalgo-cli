@@ -1,6 +1,6 @@
 # zalgo-cli
 
-A simple command line tool and [Gradio app](https://huggingface.co/spaces/tddschn/zalgo-gradio) to generate zalgo text.
+A simple command line tool and [Gradio app](https://huggingface.co/spaces/tddschn/zalgo-gradio) to generate zalgo texts, or de-zalgo texts.
 
 - [zalgo-cli](#zalgo-cli)
   - [Demo](#demo)
@@ -47,6 +47,13 @@ $ zalgo 'tc' -a100 -c '0x036D 0x0368'
 tͭͭͭcͨͨͨ	
 ```
 
+**De-zalgo-fy the text**
+
+```
+$ zalgo -z 'Z̐ȃļg̡ò'
+Zalgo
+```
+
 ### Gradio
 
 https://huggingface.co/spaces/tddschn/zalgo-gradio
@@ -86,13 +93,14 @@ You can use either `zalgo` or `zalgo-cli` to run the program.
 ```
 $ zalgo --help
 
-usage: zalgo [-h] [-a int] [-l int] [-n int] [-o] [-c str] [-d] [-V] [str]
+usage: zalgo [-h] [-a int] [-l int] [-n int] [-o] [-c str] [-d] [-z] [-V]
+             [str]
 
-Generate Zalgo text
+Generate or De-Zalgo text
 
 positional arguments:
-  str                   Initial string to Zalgo-fy. If not provided, read from
-                        stdin (default: None)
+  str                   Initial string to Zalgo-fy or De-Zalgo-fy. If not
+                        provided, read from stdin (default: None)
 
 options:
   -h, --help            show this help message and exit
@@ -107,7 +115,9 @@ options:
                         Codepoints to Add (space-separated hex values, e.g.,
                         '0x036D 0x0368') (default: )
   -d, --debug           Enable debug logging (default: False)
+  -z, --dezalgo         De-Zalgo-fy the input string (default: False)
   -V, --version         show program's version number and exit
+
 
 ```
 

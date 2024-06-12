@@ -40,3 +40,9 @@ def zalgo(string: str, adds_per_char: int, codepoints_to_add: Optional[Iterable[
         result += char
     
     return result
+
+
+def strip_accents(s):
+   import unicodedata
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')

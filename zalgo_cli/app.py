@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import gradio as gr
-from zalgo_cli import zalgo, __version__
+from zalgo_cli import __version__, zalgo, strip_accents as dezalgo
+
 
 def generate_zalgo(string, adds_per_char, char_limit, amount, one_per_line, codepoints_str):
     results = []
@@ -24,7 +25,7 @@ def gradio_app():
         gr.Markdown(f"# Zalgo Text Generator | Z̐ȃļg̡ò | [GitHub](https://github.com/tddschn/zalgo-cli) | Version {__version__}")
         
         with gr.Row():
-            input_string = gr.Textbox(label="String to Zalgo-fy")
+            input_string = gr.Textbox(label="String to Zalgo-fy or De-Zalgo-fy")
         
         with gr.Row():
             adds_per_char = gr.Number(label="Additions per Character", value=1)
@@ -39,10 +40,17 @@ def gradio_app():
         
         output = gr.Textbox(label="Zalgo Text Output", show_copy_button=True)
         
-        generate_button = gr.Button("Generate")
+        generate_button = gr.Button("Generate Zalgo Text")
         generate_button.click(
             fn=generate_zalgo, 
             inputs=[input_string, adds_per_char, char_limit, amount, one_per_line, codepoints_str], 
+            outputs=output
+        )
+
+        dezalgo_button = gr.Button("De-Zalgo Text")
+        dezalgo_button.click(
+            fn=dezalgo,
+            inputs=[input_string],
             outputs=output
         )
         

@@ -8,19 +8,19 @@ Purpose: Generate Zalgo text
 import argparse
 import sys
 import logging
-from zalgo_cli import __version__, zalgo
+from zalgo_cli import __version__, zalgo, strip_accents as dezalgo
 
 def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Generate Zalgo text',
+        description='Generate or De-Zalgo text',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('string',
                         metavar='str',
                         nargs='?',
-                        help='Initial string to Zalgo-fy. If not provided, read from stdin')
+                        help='Initial string to Zalgo-fy or De-Zalgo-fy. If not provided, read from stdin')
 
     parser.add_argument('-a',
                         '--adds-per-char',
@@ -60,6 +60,11 @@ def get_args():
                         action='store_true',
                         help='Enable debug logging')
 
+    parser.add_argument('-z',
+                        '--dezalgo',
+                        action='store_true',
+                        help='De-Zalgo-fy the input string')
+
     parser.add_argument(
         '-V', '--version',
         action='version',
@@ -79,6 +84,10 @@ def main():
         string = args.string
     else:
         string = sys.stdin.read()
+
+    if args.dezalgo:
+        print(dezalgo(string))
+        return
 
     adds_per_char = args.adds_per_char
     char_limit = args.char_limit
